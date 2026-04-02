@@ -1,0 +1,533 @@
+/* ==========================================
+   RazorDisc — Team Builder  |  style.css
+   Dark sci-fi theme
+   ========================================== */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-base:      #0a0c14;
+  --bg-panel:     #111422;
+  --bg-card:      #181d30;
+  --bg-hover:     #1e2438;
+  --accent:       #00d4ff;
+  --accent-dim:   #0099bb;
+  --accent-glow:  rgba(0, 212, 255, 0.18);
+  --danger:       #ff4560;
+  --danger-dim:   #cc2040;
+  --success:      #00e396;
+  --warning:      #ffb300;
+  --text-primary: #e8ecf4;
+  --text-muted:   #7a859e;
+  --border:       #252d45;
+  --radius:       8px;
+  --radius-lg:    14px;
+  --transition:   0.18s ease;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  line-height: 1.55;
+  min-height: 100vh;
+}
+
+/* ── Header ──────────────────────────────── */
+header {
+  background: linear-gradient(135deg, #0d1021 0%, #111728 100%);
+  border-bottom: 1px solid var(--border);
+  padding: 1.25rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-brand .logo {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.header-brand h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-shadow: 0 0 14px var(--accent-glow);
+}
+
+.header-brand h1 span {
+  color: var(--text-primary);
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* ── Buttons ─────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #000;
+}
+.btn-primary:hover {
+  background: #33dcff;
+  box-shadow: 0 0 16px var(--accent-glow);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+}
+.btn-outline:hover {
+  background: var(--accent-glow);
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+}
+.btn-danger:hover {
+  background: #ff6070;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+.btn-ghost:hover {
+  color: var(--text-primary);
+  border-color: var(--text-muted);
+}
+
+.btn-sm {
+  padding: 0.3rem 0.7rem;
+  font-size: 0.78rem;
+}
+
+.btn-icon {
+  padding: 0.35rem 0.55rem;
+  font-size: 1rem;
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ── Layout ──────────────────────────────── */
+.app-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    grid-template-columns: 1fr;
+    padding: 1rem 1rem 3rem;
+  }
+  header {
+    padding: 1rem;
+  }
+}
+
+/* ── Budget Bar ──────────────────────────── */
+.budget-section {
+  grid-column: 1 / -1;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.5rem;
+}
+
+.budget-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.budget-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.budget-values {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+#budget-remaining {
+  font-size: 1.5rem;
+  color: var(--accent);
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.budget-total {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.budget-bar-track {
+  width: 100%;
+  height: 10px;
+  background: var(--bg-card);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.budget-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--success));
+  transition: width 0.35s cubic-bezier(0.4,0,0.2,1), background 0.35s ease;
+}
+
+.budget-bar-fill.warn {
+  background: linear-gradient(90deg, var(--warning), #ff7b00);
+}
+
+.budget-bar-fill.danger {
+  background: linear-gradient(90deg, var(--danger), #ff0000);
+}
+
+/* ── Section headings ────────────────────── */
+.section-title {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+  font-weight: 700;
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ── Position Cards (left column) ───────── */
+.positions-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.position-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.position-card:hover {
+  border-color: var(--accent-dim);
+  box-shadow: 0 0 18px rgba(0,150,200,0.1);
+}
+
+.position-card.insufficient {
+  opacity: 0.55;
+}
+
+.position-icon {
+  font-size: 1.6rem;
+  width: 2.4rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.position-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.position-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: var(--text-primary);
+}
+
+.position-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.position-cost {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.position-cost small {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.position-add-btn {
+  flex-shrink: 0;
+}
+
+/* ── Roster Panel (right column) ────────── */
+.roster-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.roster-panel {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem 1.25rem;
+}
+
+.roster-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 3.5rem;
+}
+
+.roster-empty {
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  text-align: center;
+  padding: 1.5rem 0;
+  font-style: italic;
+}
+
+.roster-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.55rem 0.8rem;
+  transition: border-color var(--transition);
+  animation: fadeSlideIn 0.18s ease forwards;
+}
+
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.roster-item:hover {
+  border-color: var(--accent-dim);
+}
+
+.roster-item-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.roster-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.roster-item-name {
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.roster-item-cost {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.roster-item-remove {
+  flex-shrink: 0;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 1.1rem;
+  line-height: 1;
+  padding: 0.15rem 0.3rem;
+  border-radius: 4px;
+  transition: color var(--transition), background var(--transition);
+}
+
+.roster-item-remove:hover {
+  color: var(--danger);
+  background: rgba(255,69,96,0.12);
+}
+
+/* ── Roster Stats ────────────────────────── */
+.roster-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+
+.stat-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.75rem;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.1rem;
+}
+
+/* ── Toast notifications ─────────────────── */
+#toast-container {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.toast {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.7rem 1.1rem;
+  font-size: 0.82rem;
+  max-width: 280px;
+  pointer-events: auto;
+  animation: toastIn 0.22s ease forwards;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.toast.success { border-color: var(--success); }
+.toast.danger  { border-color: var(--danger); }
+.toast.info    { border-color: var(--accent); }
+.toast.warning { border-color: var(--warning); }
+
+.toast.hide {
+  animation: toastOut 0.22s ease forwards;
+}
+
+@keyframes toastIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes toastOut {
+  from { opacity: 1; transform: translateX(0); }
+  to   { opacity: 0; transform: translateX(20px); }
+}
+
+/* ── Clear roster button area ────────────── */
+.roster-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.75rem;
+}
+
+/* ── Import file input (hidden) ──────────── */
+#import-file {
+  display: none;
+}
+
+/* ── Responsive tweaks ───────────────────── */
+@media (max-width: 480px) {
+  .budget-values {
+    font-size: 0.95rem;
+  }
+  #budget-remaining {
+    font-size: 1.2rem;
+  }
+  .position-desc {
+    display: none;
+  }
+  .roster-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
