@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RazorDisc — Team Builder</title>
+  <meta name="description" content="Build your RazorDisc team. Spend CR credits across 5 positions. Save, export and import your roster." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Header ───────────────────────────── -->
+  <header>
+    <div class="header-brand">
+      <span class="logo">🥏</span>
+      <h1>Razor<span>Disc</span> <small style="font-size:0.65em;letter-spacing:0.03em;color:var(--text-muted)">// Team Builder</small></h1>
+    </div>
+    <div class="header-actions">
+      <button id="btn-export" class="btn btn-outline" title="Export roster as JSON">
+        ↓ Export
+      </button>
+      <button id="btn-import" class="btn btn-ghost" title="Import roster from JSON">
+        ↑ Import
+      </button>
+      <input type="file" id="import-file" accept=".json,application/json" />
+    </div>
+  </header>
+
+  <!-- ── Main content ─────────────────────── -->
+  <main class="app-container">
+
+    <!-- ── Budget bar ───────────────────────── -->
+    <section class="budget-section" aria-label="Credit budget">
+      <div class="budget-header">
+        <span class="budget-label">CR Budget</span>
+        <div class="budget-values">
+          <span id="budget-remaining">1500 CR</span>
+          <span class="budget-total"> / 1500 CR remaining</span>
+        </div>
+      </div>
+      <div class="budget-bar-track" role="progressbar" aria-valuemin="0" aria-valuemax="1500" aria-valuenow="1500">
+        <div class="budget-bar-fill" id="budget-bar" style="width:100%"></div>
+      </div>
+    </section>
+
+    <!-- ── Left column: positions ─────────── -->
+    <section class="positions-column" aria-label="Available positions">
+      <div class="section-title">Available Positions</div>
+      <div id="positions-container"></div>
+    </section>
+
+    <!-- ── Right column: roster ───────────── -->
+    <section class="roster-column" aria-label="Current roster">
+      <div class="section-title">Current Roster</div>
+
+      <div class="roster-panel">
+        <div id="roster-list" class="roster-list">
+          <div id="roster-empty" class="roster-empty">No players added yet.<br>Select a position to begin.</div>
+        </div>
+
+        <div class="roster-actions">
+          <button id="btn-clear" class="btn btn-danger btn-sm">🗑 Clear Roster</button>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="roster-stats">
+        <div class="stat-box">
+          <div class="stat-value" id="stat-players">0</div>
+          <div class="stat-label">Players</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="stat-spent">0 CR</div>
+          <div class="stat-label">Spent</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-value" id="stat-saved">1500 CR</div>
+          <div class="stat-label">Remaining</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Toast container ──────────────────── -->
+  <div id="toast-container" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
